@@ -1,0 +1,97 @@
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/0.5.0/chartjs-plugin-zoom.js"></script>
+</head>
+
+<body>
+    <h3>server side render chart</h3>
+    https://earldouglas.com/posts/node-mustache.html
+    https://github.com/chartjs/chartjs-plugin-zoom
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var data = {{&data}}
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: {
+                animation: {
+                    duration: 0, // general animation time
+                },
+                elements: {
+                    line: {
+                        tension: 0, // disables bezier curves
+                    }
+                },
+                scales: {
+                    yAxes: [
+                        {
+                            id: 'first-y-axis',
+                            type: 'linear',
+                            position: 'left',
+                            ticks: {
+//                                beginAtZero:true
+                            }
+                        },
+                        {
+                            id: 'second-y-axis',
+                            type: 'linear',
+                            position: 'right',
+                            ticks: {
+//                                beginAtZero:true
+                            }
+                        }
+                    ]
+                },
+                // Container for pan options
+                pan: {
+                    // Boolean to enable panning
+                    enabled: true,
+
+                    // Panning directions. Remove the appropriate direction to disable
+                    // Eg. 'y' would only allow panning in the y direction
+                    mode: 'x',
+                //     rangeMin: {
+                //         // Format of min pan range depends on scale type
+                //         x: null,
+                //         y: null
+                //     },
+                //     rangeMax: {
+                //         // Format of max pan range depends on scale type
+                //         x: null,
+                //         y: null
+                //     }
+                },
+
+                // Container for zoom options
+                zoom: {
+                    // Boolean to enable zooming
+                    enabled: true,
+
+                    // Enable drag-to-zoom behavior
+                    drag: true,
+
+                    // Zooming directions. Remove the appropriate direction to disable
+                    // Eg. 'y' would only allow zooming in the y direction
+                    mode: 'x',
+                    // rangeMin: {
+                    //     // Format of min zoom range depends on scale type
+                    //     x: null,
+                    //     y: null
+                    // },
+                    // rangeMax: {
+                    //     // Format of max zoom range depends on scale type
+                    //     x: null,
+                    //     y: null
+                    // }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
