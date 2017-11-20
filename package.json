@@ -26,6 +26,7 @@
     "typescript": "^2.5.3"
   },
   "dependencies": {
+    "chart.js": "^2.7.1",
     "date-fns": "^1.28.5",
     "regression": "^2.0.0",
     "simple-statistics": "^5.0.0"
