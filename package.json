@@ -19,6 +19,7 @@
     "@types/chart.js": "^2.7.0",
     "@types/date-fns": "^2.6.0",
     "@types/jest": "^21.1.2",
+    "@types/mustache": "^0.8.30",
     "@types/node": "^8.0.31",
     "jest": "^21.2.1",
     "ts-jest": "^21.2.1",
@@ -28,6 +29,7 @@
   "dependencies": {
     "chart.js": "^2.7.1",
     "date-fns": "^1.28.5",
+    "mustache": "^2.3.0",
     "regression": "^2.0.0",
     "simple-statistics": "^5.0.0"
   },
