@@ -60,3 +60,4 @@ typings/
 
 /dest/*
 /www/*
+/public/data/c3dummy.json

@@ -1,0 +1,43 @@
+<html>
+
+<head >
+    <!-- Load c3.css -->
+    <link href="https://cdn.jsdelivr.net/npm/c3@0.4.18/c3.css" rel="stylesheet">
+
+    <!-- Load d3.js and c3.js -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.min.js" charset="utf-8"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/c3@0.4.18/c3.min.js"></script>
+
+    <!-- Load angular.js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+    <script>
+        var app = angular.module('app', []);
+        app.controller('ChartController', ['$scope', '$http', function($scope, $http){
+            $http.get('data/c3dummy.json').then(
+                function(response) {
+                    $scope.chartData = response.data;
+                    $scope.chartData.bindto= '#chart';
+                    var chart = c3.generate($scope.chartData);
+                },
+                function(err) {
+                  alert('読み込み失敗');
+                }
+            );
+        }]);
+
+    </script>
+</head>
+
+<body ng-app="app" >
+    <div ng-controller="ChartController">
+        <div id="chart"></div>
+        <div>
+            <pre>{{ chartData| json }}</pre>
+        </div>
+
+    </div>
+</body>
+
+</html>
