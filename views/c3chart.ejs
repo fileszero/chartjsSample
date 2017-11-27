@@ -33,7 +33,9 @@
 <body ng-app="app" >
     <div ng-controller="ChartController">
         <div id="chart"></div>
-        <div>{{ chartData| json }}</div>
+        <div>
+            <pre>{{ chartData| json }}</pre>
+        </div>
 
     </div>
 </body>
