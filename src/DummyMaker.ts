@@ -2,7 +2,6 @@ import * as df from "date-fns";
 import * as Chart from "chart.js";
 import { ChartData, ChartDataSets } from "chart.js";
 
-import * as mustache from "mustache";
 import * as fs from "fs";
 
 function MakeTimeSeriesData() {
@@ -36,6 +35,6 @@ function MakeTimeSeriesData() {
 
 fs.readFile("./views/chart2.mst", { encoding: "utf-8" }, (err, buf) => {
     if (err) throw err;
-    const response = mustache.to_html(buf, { data: JSON.stringify(MakeTimeSeriesData()) });
-    console.log(response);
+    //    const response = mustache.to_html(buf, { data: JSON.stringify(MakeTimeSeriesData()) });
+    //    console.log(response);
 });
