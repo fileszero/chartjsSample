@@ -15,7 +15,7 @@
     <script>
         var app = angular.module('app', []);
         app.controller('ChartController', ['$scope', '$http', function($scope, $http){
-            $http.get('data/sample.json').then(
+            $http.get('data/c3dummy.json').then(
                 function(response) {
                     $scope.chartData = response.data;
                     $scope.chartData.bindto= '#chart';
