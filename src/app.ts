@@ -12,6 +12,7 @@ app.set("views", path.resolve(__dirname, "../views"));
 app.set("view engine", "ejs");
 
 // static files
+console.log("STATIC=>" + path.resolve(__dirname, "../public"));
 app.use(express.static(path.resolve(__dirname, "../public")));
 
 // routing
