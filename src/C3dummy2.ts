@@ -35,8 +35,8 @@ function MakeTimeSeriesData() {
         },
         y2: { show: true }
     };
-    chartConf.zoom = {
-        enabled: true
+    chartConf.subchart = {
+        show: true
     };
 
 
@@ -54,6 +54,8 @@ function MakeTimeSeriesData() {
 
         cur_time = df.addSeconds(cur_time, 60);
     }
+    chartConf.point = { show: false };
+
     return chartConf;
 }
 const data = MakeTimeSeriesData();
