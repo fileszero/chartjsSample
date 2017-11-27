@@ -30,7 +30,8 @@ function MakeTimeSeriesData() {
         x: {
             type: "timeseries",
             tick: {
-                format: "%H:%M:%S"
+                format: "%H:%M:%S",
+                rotate: 90
             }
         },
         y2: { show: true }
@@ -39,14 +40,12 @@ function MakeTimeSeriesData() {
         show: true
     };
 
-
     let cur_time = new Date("2017/11/10 9:00");
     const end_of_time = df.addHours(cur_time, 6);
-
+    const ticks: string[] = [];
     while (cur_time < end_of_time) {
 
         chartConf.data.columns[0].push(df.format(cur_time, "YYYY-M-D H:m:s"));
-
         for (let i = 0; i < data_num; i++) {
             val[i] += (Math.random() - 0.5) * (Math.pow(10, i));
             chartConf.data.columns[i + 1].push(val[i]);
@@ -55,8 +54,11 @@ function MakeTimeSeriesData() {
         cur_time = df.addSeconds(cur_time, 60);
     }
     chartConf.point = { show: false };
-
     return chartConf;
 }
 const data = MakeTimeSeriesData();
-console.log(JSON.stringify(data));
+fs.writeFile("./public/data/chartdata.json", JSON.stringify(data, undefined, 4), (err) => {
+    if (err) {
+        console.error(err);
+    }
+});
